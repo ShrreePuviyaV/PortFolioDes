@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puviya's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<script src="https://kit.fontawesome.com/3d7575f946.js" crossorigin="anonymous"></script>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins',sans-serif;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background: #080808;
+    color: #fff;
+}
+#header{
+    width:100%;
+    height: 100vh;
+    background-color: #ffffff;
+    background-size: cover;
+    background-position: center;
+}
+.container{
+    padding: 10px 10%;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.logo{
+    width: 200px;
+
+}
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+}
+nav ul li a{
+    color: #7e2c7e;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+}
+nav ul li a::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #b85db8;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s;
+}
+nav ul li a:hover::after{
+    width: 100%;
+}
+.header-text{
+    margin-top: 20%;
+    font-size: 30px;
+}
+.header-text h1{
+    font-size: 60px;
+    margin-top: 20px;
+    color: #b887b8;
+    font-style: italic;
+}
+.header-text h1 span{
+    color: #7e2c7e;
+}
+.header-text p{
+    color: #b887b8;
+}
+
+/*about*/
+#about{
+    padding: 80px 0;
+    color: #7e2c7e;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.about-col-1{
+    flex-basis: 35%;
+}
+.about-col-1 img{
+    width: 100%;
+    border-radius: 15px;
+}
+.about-col-2{
+    flex-basis: 60%;
+}
+.subtitle{
+    font-size: 58px;
+    font-weight: 600;
+    color: #7e2c7e;
+}
+.about-col-2 p span{
+    color: #ffffff;
+    font-size: 20px;
+    
+}
+.tab-titles{
+    display: flex;
+    margin: 20px 0 40px;
+    
+}
+.tab-links{
+    margin-right: 50px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+}
+.tab-links::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background-color: #ff04ff;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    transition: 0.5s;
+}
+.tab-links.active-link::after{
+    width: 50%;
+}
+.tab-contents ul li{
+    color: #ffffff;
+    list-style: none;
+    margin: 10px 0;
+}
+.tab-contents ul li span{
+    color: #7e2c7e;
+    font-size: 14px;
+}
+.tab-contents{
+    display: none;
+}
+.tab-contents.active-tab{
+    display: block;
+}
+
+
+
+#services{
+    padding: 30px 0;
+}
+.services-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px, 1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+}
+.services-list div{
+    background: #db6bdb;
+    padding: 40px;
+    font-size: 13px;
+    font-weight: 300;
+    transform: 0.5s;
+    border-radius: 10px;
+}
+.services-list div i{
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+.services-list div h2{
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+.services-list div a{
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 12px;
+    margin-top: 20px;
+    display: inline-block;
+}
+.services-list div:hover{
+    background: #911977;
+    transform: translateY(-10px);
+}
+
+
+
+#portfolio{
+    padding: 50px 0;
+}
+.work-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px, 1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+}
+.work{
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+.work img{
+    width: 400px;
+    height: 500px;
+    border-radius: 10px;
+    display: block;
+    transition: transform 0.5s;
+}
+.layer{
+    width: 100%;
+    height: 0;
+    background: linear-gradient(rgba(0,0,0,0.6),#7e2c7e);
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    text-align: center;
+    font-size: 14px;
+    transition: height 0.5s;
+}
+.layer h3{
+    font-weight: 500;
+    margin-bottom: 20px;
+
+}
+.layer a{
+    margin-top: 20px;
+    color: #7e2c7e;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 60px;
+    background: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+}
+.work:hover img{
+    transform: scale(1.1);
+}
+.work:hover .layer{
+      height: 100% ;
+}
+.btn{
+    display: block;
+    margin: 50px auto;
+    justify-content: center;
+    width: fit-content;
+    border: 1px solid #7e2c7e;
+    padding: 14px 50px;
+    border-radius: 13px;
+    text-decoration: none;
+    color: #fff;
+    transition: 0.5s;
+    
+}
+.btn:hover{
+    background: #7e2c7e;
+}
+/*contact*/
+
+.contactleft{
+    flex-basis: 35%;
+}
+.contactright{
+    flex-basis: 60%;
+}
+.contactleft p{
+    margin-top: 30px;
+}
+.contactleft p i{
+    color: #7e2c7e;
+    margin-right: 15px;
+    font-size: 25px;
+}
+
+.social-icons{
+    margin-top: 30px;
+}
+.social-icons a{
+    text-decoration: none;
+    font-size: 30px;
+    margin-right: 15px;
+    color: #ad9494;
+    display: inline-block;
+    transition: 0.5s;
+}
+.social-icons a:hover{
+    color: #fff;
+    transform: translateY(-1px);
+}
+.btn.btn2{
+    display: inline-block;
+    background-color: #7e2c7e;
+    transform: translateY(-1px);
+}
+.contactright form{
+    width: 100%;
+}
+form input, form textarea{
+    width: 100%;
+    outline: none;
+    margin: 15px 0;
+    border: 0;
+    background: #262626;
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: transform 0.5s;
+}
+form .btn2{
+    padding: 14px 60px;
+    font-size: 18px;
+    margin-top: 20px;
+    cursor: pointer;
+    transform: translateY(-1px);
+
+}
+.copyright{
+    width: 100%;
+    padding: 25px 0;
+    background: #262626;
+    text-align: center;
+    font-weight: 300;
+    font-size: 15px;
+    margin-top: 20px;
+}
+.copyright i{
+    color: #911977;
+}
+
+
+
+@media only screen and(max-with:600px){
+
+}
+#msg{
+    color: #ffffff;
+    display: block;
+    margin-top: -40px;
+}
+</style>
+<body>
+    <div id="header">
+    <div class="container">
+        <nav>
+            <img src="img/logo.png" class="logo">
+            <ul>
+                <li><a href="#header"><b>Home</b></a></li>
+                <li><a href="#about"><b>About</b></a></li>
+                <li><a href="#services"><b>Services</b></a></li>
+                <li><a href="#portfolio"><b>Portfolio</b></a></li>
+                <li><a href="#contact"><b>Contact</b></a></li>
+            </ul>
+        </nav>
+        <div class="header-text">
+            
+            <h1>Hi,I'm <span>Shrree Puviya </span><br>from SREC!</h1><br>
+            <p>A Web Developer...</p>
+        </div>
+    </div>
+</div>
+
+
+<div id="about">
+    <div class="contaner">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="img/PuviyaProfilePic.jpeg">
+            </div>
+            <div class="about-col-2">
+                <h1 class="subtitle">About me</h1>
+                <p><span>Hi,I'm Shrree Puviya,a passionate aspiring Web developer with a keen interest in building dynamic and efficient applications.I have a basic foundation on<br>Java,HTML,CSS and constantly exploring new technologies to enhance my skill set.Currently,I'm working on projects that showcase my ability to develop<br>user-friendly web applications.<br><br><i>Looking for opportunities to collaborate and grow in the world of software development.</i></span></p>
+                       <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                        <p class="tab-links" onclick="opentab('myworks')">My works</p>
+                       </div>
+                       <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>HTML/CSS</span><br>Designing web pages with interactive user interfaces.</li>
+                            <li><span>Android app development</span><br>App creation using java and xml.</li>
+                            <li><span>Java</span><br>Intermediate </li>
+                        </ul>
+                       </div>
+                       <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>B.Tech IT</span><br>at SREC,Coimbatore.</li>
+                            <li><span>Secondary and higher Secondary</span><br>at SNVS,Chennai and TKS,Theni.</li>
+                        </ul>
+                       </div>
+                       <div class="tab-contents" id="works">
+                        <ul>
+                            
+                            <li><span>HTML,CSS</span><br>Created a website for hostel E-Outpass System of our college.</li>
+                            <li><span>Android application development</span><br>Has Built mobile application that focuses on<br>providing pharmacy mediTrack including doctor appointments,medicine booking etc.</li>
+                        </ul>
+                       </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="services">
+    <div class="container">
+        <h1 class="subtitle">My services</h1>
+        <div class="services-list">
+            <div>
+                <i class="fa-solid fa-code"></i>
+                <h2>Web design</h2>
+                <p>I build responsive and interactive websites using HTML,CSS and <br>currently processing to learn react for building high-performance sites....</p>
+                    <a href="#">Learn more</a>
+            </div>
+            <div>
+                <i class="fa-brands fa-app-store-ios"></i>
+                <h2>Android app development</h2>
+                <p>Has been working on a project called "MediTrack Mobile App"<br>which uses Java as it's backend and xml for designing each mobile activity...</p>
+                    <a href="#">Learn more</a>
+            </div>
+            <div>
+                <i class="fa-brands fa-bots"></i>
+                <h2>Soft Bots creation</h2>
+                <p>Currently researching about Robotic Process Automation</p>
+                <p>Also created basic soft bots like Human follower,Obstacle Avoidance robot<br>in Proteus that uses PIR sensor and 8051 Microcontroller...</p>
+                    <a href="#">Learn more</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="portfolio">
+    <div class="container">
+        <h1 class="subtitle">My work</h1>
+        <div class="work-list">
+            <div class="work">
+                <img src="img/MediServ.jpg">
+                <div class="layer">
+                    <h3>MediTrack Mobile App</h3>
+                    <p>This app is useful for the people who cannot go get their checkups directly.<br>It has six cards which includes-find doctor,labtest and packages,Health<br>articles,Order details,Cart Activity with default database present in the android studio</p>
+                    <a href="https://meditrack-hs-p5dy.vercel.app/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="img/Pestc.jpg">
+                <div class="layer">
+                    <h3>Nest's PEST Control System</h3>
+                    <p>This is my internship project and was given the role of a front-end developer.<br>A web form is created which makes the people to get suggestions about their damaged land or issue,they can even<br>buy fertilizers,Assign pest-control technician when the issue seems to be complicated...</p>
+                    <a href="https://67fa1bd197bede1cbcf62e54--resilient-sunburst-e658a1.netlify.app/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="img/Hostel.jpg">
+                <div class="layer">
+                    <h3>Hostel E-Outpass System</h3>
+                    <p>A website is created for hostel students who wanted to get outpass by getting approval from tutors,warden,get checked from security manually.To reduce the workload,dashboards are created separately for 4 parties and handled by them using Button Click for approval(STILL IN PROGRESS)</p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <a href="#" class="btn">See more</a>
+
+    </div>
+</div>
+
+
+
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contactleft">
+            <h1 class="subtitle">Contact Me</h1>
+            <p><i class="fa-solid fa-paper-plane"></i>  shrreepuviya.2205135@srec.ac.in<br><br>
+            <i class="fa-solid fa-phone"></i>  9821117213</p><br>
+    
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/shrreepuviyav555"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/ShrreePuviya555"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.salesforce.com/trailblazer/vsp555"><i class="fa-brands fa-salesforce"></i></a>
+            </div>
+
+            <a href="img/shrreepuviyaCV.pdf" download class="btn btn2">Download CV</a>
+            </div>
+            
+            <div class="contactright">
+            <form name="submit-to-google-sheet">
+                <input type="text" name="Name" placeholder="Enter your name" required>
+                <input type="text" name="Email" placeholder="Your mail id" required>
+                <textarea name="Message" rows="6" placeholder="Ur Message"></textarea>
+                <button type="submit" class="btn btn2">Submit</button>
+            </form>
+            <span id="msg"></span>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>copyright @ puviya.Made with  <i class="fa-solid fa-snowflake"></i> to quench my industry's thirst.</p>
+    </div>
+</div>
+
+<script>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+    function opentab(tabname){
+          for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+          }
+          for(tabcontent of tabcontents){
+            tablink.classList.remove("active-tab");
+          }
+          event.currentTarget.classList.add("active-link");
+          document.getElementById(tabname).classList.add("active-tab");
+    }
+
+</script>
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwdISci9h6COSuSH_HnSzk-MJNCckF5SJfYS7pC9U9CDkFMMfC_nEDGviSM8cmIutxAEA/exec'
+  const form = document.forms['submit-to-google-sheet']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
+</body>
+</html>
